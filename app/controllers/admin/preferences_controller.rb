@@ -13,7 +13,6 @@ class Admin::PreferencesController < ApplicationController
   end
 
   def create
-    binding.pry
     @preference = Preference.new(preference_params)
 
     if @preference.save
