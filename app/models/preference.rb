@@ -8,4 +8,5 @@ class Preference < ActiveRecord::Base
   def self.allow_create_artists
     Preference.find(1).allow_create_artists
   end
+
 end
