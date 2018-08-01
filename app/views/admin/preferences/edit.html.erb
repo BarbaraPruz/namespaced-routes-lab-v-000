@@ -1,5 +1,5 @@
 <h1>Edit Preference</h1>
-<%= form_for @preference, :url => admin_preferences_path(@preference.id)  do |f| %>
+<%= form_for @preference, :url => admin_preference_path(@preference.id)  do |f| %>
   <%= f.label :song_sort_order %>
   <%= f.text_field :song_sort_order %><br>
   <%= f.label :artist_sort_order %>
