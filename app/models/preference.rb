@@ -4,8 +4,7 @@ class Preference < ActiveRecord::Base
   validates :song_sort_order, inclusion: { in: [ "ASC", "DESC" ] }
 
   def allow_create_songs
-    binding.pry
-    Preference.find_or_create(1).allow_create_songs
+    Preference.find_or_create_by(:id => 1).allow_create_songs
   end
   def allow_create_songs=(value)
     row = Preference.find_or_create(1)

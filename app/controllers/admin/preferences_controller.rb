@@ -1,30 +1,36 @@
 class Admin::PreferencesController < ApplicationController
   def index
-    @preference = Preference.find_or_create(:id => params[:id])
+    @preferences = Preference.all
   end
+
   def show
-    @preference = Preference.find_or_create(:id => params[:id])
+    @preference = Preference.find(params[:id])
   end
 
   def new
-    @preference = Preference.find_or_create(:id => 1)
+    @preference = Preference.new
   end
 
   def create
-    @preference = Preference.find(1)
-    @preference.update
-    redirect_to admin_preferences
+    @preference = Preference.new(preference_params)
+
+    if @preference.save
+      redirect_to admin_preferences_path
+    else
+      render :new
+    end
   end
 
+
   def edit
-    @preference = Preferance.find_or_create(:id => 1)
+    @preference = Preferance.find(params[:id])
   end
 
   def update
     @preference = Preference.find(params[:id])
     @preference.update(preference_params)
     if @preference.save
-      redirect_to admin_preferences
+      redirect_to admin_preferences_path
     else
       render :edit
     end
