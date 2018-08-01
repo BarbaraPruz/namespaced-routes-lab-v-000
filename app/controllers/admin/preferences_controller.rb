@@ -38,4 +38,8 @@ class Admin::PreferencesController < ApplicationController
     end
   end
 
+  private
+  def preference_params
+        params.require(:preferences).permit(:song_sort_order, :artist_sort_order, :allow_create_songs, allow_create_artists)
+  end
 end
