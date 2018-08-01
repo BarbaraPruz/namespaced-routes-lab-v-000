@@ -19,4 +19,3 @@ songs.each do |song|
   Song.create(song)
 end
 
-Preference.new (:song_sort_order => "ASC", :artist_sort_order => "DESC", :allow_create_artists => false, :allow_create_songs => true)
